@@ -61,8 +61,11 @@
         <form class="col-12 w-100" action="#" method="get">
             <div class="mb-3">
                 <label for="answer" class="form-label"> Your answer: </label>
-                <textarea id="answer" class="form-control" placeholder="Enter your answer here"></textarea>
-
+                <textarea id="answer" class="form-control is-invalid" placeholder="Enter your answer here"></textarea>
+                <label class="col-2 invisible"></label>
+                <div id="titleFeedback" class="invalid-feedbak text-danger col-10">
+                    Your response is not acceptable.
+                </div>
             </div>
             <input type="submit" class="btn btn-primary" value="Answer">
         </form>

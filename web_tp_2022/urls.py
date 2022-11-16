@@ -18,11 +18,11 @@ from django.urls import path
 from expectedafterexpression.views import base, index, question, ask, login, signup
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', base),
-    path('index', index),
-    path('question', question),
-    path('ask', ask),
-    path('login', login),
-    path('signup', signup),
+    # path('admin/', admin.site.urls),
+    path('', base, name=""),
+    path('index', index, name="index"),
+    path('question', question, name="question"),
+    path('ask', ask, name="ask"),
+    path('login', login, name="login"),
+    path('signup', signup, name="signup"),
 ]

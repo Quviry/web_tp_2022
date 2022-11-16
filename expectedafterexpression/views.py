@@ -24,11 +24,11 @@ def ask(request):
 
 
 def login(request):
-    request.authorised = True
+    request.authorised = False
     return render(request, "login.html")
 
 
 def signup(request):
-    request.authorised = True
+    request.authorised = False
     return render(request, "signup.html")
 
