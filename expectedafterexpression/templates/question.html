@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Ask a question{% endblock %}
+{% block content %}
+    <div class="container col">
+
+        <div class="row rounded mt-3 p-3 ">
+            <div class="col-2 justify-content-center">
+                <img class="rounded" src="{% static "img/gif_logo.gif" %}" width="100%" alt="question-picture">
+                <div class="likes-block d-flex mt-4 justify-content-center">
+                    <button class="btn btn-default"><img src="{% static "img/up.png" %}" width="16" height="16"
+                                                         alt="upvote"></button>
+                    <span class="text-dark my-auto mx-3 justify-content-center">122</span>
+                    <button class="btn btn-default"><img src="{% static "img/up.png" %}" width="16" height="16"
+                                                         alt="upvote" class="rotated"></button>
+                </div>
+            </div>
+            <div class="col-10 justify-content-start d-flex flex-column">
+                <a class="h3" href="#">How can I build a {% lorem 2 w random %}?</a>
+                <div class="col-10 ">
+                    {% lorem 40 w random %}
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <span>Tags: </span>
+                        <a href="#">{% lorem 1 w random %}</a>
+                        <a href="#">{% lorem 1 w random %}</a>
+                        <a href="#">{% lorem 1 w random %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        {% for i in "123" %}
+            <div class="row rounded border mt-3 p-3 ">
+                <div class="col-2 d-flex flex-column justify-items-center">
+                    <img class="rounded justify-content-center" src="{% static "img/gif_logo.gif" %}" width="80%" alt="question-picture">
+                    <div class="likes-block d-flex mt-4 align-items-center">
+                        <button class="btn btn-default"><img src="{% static "img/up.png" %}" width="16" height="16"
+                                                             alt="upvote"></button>
+                        <span class="text-dark my-auto mx-3 justify-content-center">122</span>
+                        <button class="btn btn-default"><img src="{% static "img/up.png" %}" width="16" height="16"
+                                                             alt="upvote" class="rotated"></button>
+                    </div>
+                </div>
+                <div class="col-10 justify-content-start d-flex flex-column">
+                    <div class="col-10 ">
+                        {% lorem 40 w random %}!
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <input type="checkbox" id="correct_id">
+                            <label for="correct_id">Correct</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <hr>
+        <form class="col-12 w-100" action="#" method="get">
+            <div class="mb-3">
+                <label for="answer" class="form-label"> Your answer: </label>
+                <textarea id="answer" class="form-control" placeholder="Enter your answer here"></textarea>
+
+            </div>
+            <input type="submit" class="btn btn-primary" value="Answer">
+        </form>
+    </div>
+{% endblock %}

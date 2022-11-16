@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet">
+    {% block extra_relations %}{% endblock %}
+    <title>{% block title %}Base page{% endblock %}</title>
+</head>
+<body class="d-flex flex-column h-100">
+<header class="p-3 text-bg-dark">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-light text-decoration-none">
+                <img class="bi me-2" width="40" height="32" src="{% static "img/icon2.svg" %}" alt="logo">
+                <span class="fs-4">Expected After Expression</span>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">New</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">Popular</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">Users of the week</a></li>
+            </ul>
+
+            <form class="d-flex align-items-center ps-5" role="search">
+                <input type="search" class="w-100 me-3 form-control form-control-dark text-bg-dark"
+                       placeholder="Search..."
+                       aria-label="Search">
+                <button class="flex-shrink-0 form-control-dark btn btn-outline-success" type="submit">Expect!</button>
+
+            </form>
+            {% if request.authorised %}
+                <div class="dropdown text-end d-flex">
+                    <a class="text-light align-items-center text-decoration-none px-3 m-auto" href="#">
+                        {% filter capfirst %}{% lorem 1 w random %}{% endfilter %}</a>
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small" style="">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+            {% else %}
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-light me-2">Login</button>
+                    <button type="button" class="btn btn-warning">Sign-up</button>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+<main class="d-flex flex-nowrap">
+    {% block content %}
+        <div class="container">
+            <h1 class="mt-5">Baased content</h1>
+        </div>
+    {% endblock %}
+    <div class="flex-shrink-0 ms-auto p-3 bg-white text-start" style="width: 280px;">
+        <ul class="list-unstyled ps-0">
+            <div class="mb-1">
+                <div>
+                    <h3 class="h3 ps-1">Popular tags</h3>
+                    <div>
+                        <a href="#1"
+                           class="align-items-center text-decoration-none link-orange text-orange fs-1">tag #5</a>
+                        <a href="#1"
+                           class="align-items-center text-decoration-none link-danger text-orange fs-2">tag #2</a>
+                        <a href="#1"
+                           class="align-items-center text-decoration-none link-dark text-orange fs-3">tag #3</a>
+                        <a href="#1"
+                           class="align-items-center text-decoration-none link-primary text-orange fs-4">tag #6</a>
+                        <a href="#1"
+                           class="align-items-center text-decoration-none link-success text-orange fs-6">tag #1</a>
+                        <a href="#1"
+                           class="align-items-center text-decoration-none link-warning text-orange fs-5">tag #4</a>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <h3 class="h3 ps-1">Best members</h3>
+                    <a href="#1" class="text-decoration-none link-orange text-orange link-info">Someone popular</a>
+                    <a href="#1" class="text-decoration-none link-orange text-orange link-info">Someone second
+                        popular</a>
+                    <a href="#1" class="text-decoration-none link-orange text-orange link-info">Someone third
+                        popular</a>
+                    <a href="#1" class="text-decoration-none link-orange text-orange link-info">Someone fourth
+                        popular</a>
+                    <a href="#1" class="text-decoration-none link-orange text-orange link-info">Someone fifth
+                        popular</a>
+                    <a href="#1" class="text-decoration-none link-orange text-orange link-info">Someone sixth
+                        popular</a>
+                </div>
+            </div>
+        </ul>
+    </div>
+</main>
+
+<footer class="py-3 my-4 mt-auto footer container">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">New</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Popular</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Users of the week</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2022 IzzaPolkovo, Inc</p>
+</footer>
+
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

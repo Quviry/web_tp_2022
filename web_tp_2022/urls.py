@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from expectedafterexpression.views import base, index, question, ask, login, signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', base),
+    path('index', index),
+    path('question', question),
+    path('ask', ask),
+    path('login', login),
+    path('signup', signup),
 ]

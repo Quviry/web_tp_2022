@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Ask a question{% endblock %}
+{% block content %}
+
+
+
+    <div class="container w-100 h-100">
+        <form method="get" action="#">
+            <h3 class="h3">New question</h3>
+            <div class="row mt-3">
+                <label for="title" class="col-2 col-form-label">Title</label>
+
+                <div class="col-10"><input type="text" class="form-control is-invalid" id="title"
+                                           placeholder="How to touch the moon"
+                                           value="How to" aria-describedby="titleFeedback" required></div>
+                <label class="col-2 invisible">Title</label>
+                <div id="titleFeedback" class="invalid-feedbak text-danger col-10">
+                    Cant use this title.
+                </div>
+            </div>
+            <div class="row mt-3">
+                <label for="text" class="col-2  col-form-label">Text</label>
+
+                <div class="col-10"><textarea type="text" class="form-control is-invalid" id="text"
+                                              placeholder="Type something"></textarea></div>
+                <label class="col-2 invisible">Title</label>
+                <div id="titleFeedback" class="invalid-feedbak text-danger col-10">
+                    Cant use this text.
+                </div>
+            </div>
+            <div class="row mt-3">
+                <label for="tags" class="col-2 col-form-label">Tags</label>
+
+                <div class="col-10"><input type="text" class="form-control is-invalid" id="tags" placeholder="tag1, tag2"
+                                           value="tag"></div>
+                <label class="col-2 invisible">Title</label>
+                <div id="titleFeedback" class="invalid-feedbak text-danger col-10">
+                    Cant use this tags set.
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-2 invisible">None here</div>
+                <div class="col-10">
+                    <button type="submit" class="btn btn-primary">Ask</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}
