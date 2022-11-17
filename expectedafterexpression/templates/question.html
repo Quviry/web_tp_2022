@@ -16,23 +16,23 @@
                 </div>
             </div>
             <div class="col-10 justify-content-start d-flex flex-column">
-                <h4 class="h4" href="#">Question number {{ id }}?</a>
-                <a class="h3" href="#">How can I build a {% lorem 2 w random %}?</a>
+                <h4 class="h4" >Question number {{ id }}?</h4>
+                <a class="h3">How can I build a {% lorem 2 w random %}?</a>
                 <div class="col-10 ">
                     {% lorem 40 w random %}
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
                         <span>Tags: </span>
-                        <a href="#">{% lorem 1 w random %}</a>
-                        <a href="#">{% lorem 1 w random %}</a>
-                        <a href="#">{% lorem 1 w random %}</a>
+                        <a href="{% url "tag" tag_name="tag1" %}">{% lorem 1 w random %}</a>
+                        <a href="{% url "tag" "tag2" %}">{% lorem 1 w random %}</a>
+                        <a href="{% url "tag" "tag3" %}">{% lorem 1 w random %}</a>
                     </div>
                 </div>
             </div>
         </div>
         <hr>
-
+        <a id="answers"></a>
         {% for i in "123" %}
             <div class="row rounded border mt-3 p-3 ">
                 <div class="col-2 d-flex flex-column justify-items-center">
