@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="container">
-        {% for i in "12345678" %}
+        {% for question in page_obj %}
             <div class="row rounded bg-dark border border-2 border-dark border- bg-opacity-25 mt-3 p-3 ">
                 <div class="col-2 justify-content-center">
                     <img class="rounded" src="{% static "img/gif_logo.gif" %}" width="100%" alt="question-picture">
@@ -17,8 +17,9 @@
                     </div>
                 </div>
                 <div class="col-10 justify-content-between d-flex flex-column">
-                    <a class="h3" href="#">How can I build a {% lorem 2 w random %}?</a>
+                    <a class="h3" href="#">{{ question.title | upper }} How can I build a {% lorem 2 w random %}?</a>
                     <div class="col-10 ">
+                        {{ question.text }}
                         {% lorem 40 w random %}
                     </div>
                     <div class="row mt-auto">

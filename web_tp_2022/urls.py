@@ -15,14 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from expectedafterexpression.views import base, index, question, ask, login, signup
+from expectedafterexpression.views import index, question, ask, login, signup, hot, tag
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('', base, name=""),
-    path('index', index, name="index"),
-    path('question', question, name="question"),
-    path('ask', ask, name="ask"),
+    path('', index, name=""),
+    path('hot', hot, name="hot"),
+    path('tag/{tag:str}', tag, name="tag"),
+    path('question/{id:int}', question, name="question"),
     path('login', login, name="login"),
     path('signup', signup, name="signup"),
+    path('ask', ask, name="ask"),
 ]
